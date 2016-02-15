@@ -1,0 +1,4 @@
+Django==1.9.2
+python-google-places==1.1.0
+six==1.10.0
+wheel==0.24.0

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Boxify: Free HTML5/CSS3 Template by Peter Finlan</title>
+		<!-- Bootstrap -->
+		<link href="{% static 'places/css/bootstrap.min.css' %}" rel="stylesheet">
+		<link href="{% static 'places/css/animate.css' %}" rel="stylesheet">
+		<link href="{% static 'places/css/offcanvas.css' %}" rel="stylesheet">
+		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+		<link href="{% static 'places/css/styles.css' %}" rel="stylesheet">
+		
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+		          	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			            <span class="sr-only">Toggle navigation</span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+		          	</button>
+		          	<a class="navbar-brand" href="#"><img src="{% static 'places/img/logo-white.png' %}" alt="Boxify Logo"></a>
+		        </div>
+		        <div class="collapse navbar-collapse text-right">
+		          	<ul class="nav navbar-nav">
+		            	<li class="active"><a href="{% url 'places:index' %}">Home</a></li>
+		          	</ul>
+		        </div><!-- /.nav-collapse -->
+			</div><!-- /.container -->
+		</div><!-- /.navbar -->
+
+		<div class="container">
+	      	<div class="row row-offcanvas row-offcanvas-right">
+          		<p class="pull-right visible-xs">
+            		<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          		</p>
+
+				<div class="jumbotron">
+					<h1>Explore {{ location }}</h1>
+				</div>
+				
+				<div class="row">
+					<div class="col-6 col-sm-6 col-lg-4">
+						<div class="feature-icon">
+							<i class="icon-food"></i>
+						</div>
+						<div class="feature-content">
+							<h1>Restaraunt</h1>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+							<a href="http://tympanus.net/codrops/?p=22554" class="read-more-btn">Read More <i class="fa fa-chevron-circle-right"></i></a>
+						</div>
+					</div><!--/span-->
+					<div class="col-6 col-sm-6 col-lg-4">
+						<div class="feature-icon">
+							<i class="fa fa-heart"></i>
+						</div>
+						<div class="feature-content">
+							<h1>Gyms</h1>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+							<a href="http://tympanus.net/codrops/?p=22554" class="read-more-btn">Read More <i class="fa fa-chevron-circle-right"></i></a>
+						</div>
+					</div><!--/span-->
+					<div class="col-6 col-sm-6 col-lg-4">
+						<div class="feature-icon">
+							<i class="fa fa-hospital-o"></i>
+						</div>
+						<div class="feature-content">
+							<h1>Hospital</h1>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+							<a href="http://tympanus.net/codrops/?p=22554" class="read-more-btn">Read More <i class="fa fa-chevron-circle-right"></i></a>
+						</div>
+					</div><!--/span-->
+				</div><!--/row-->
+      		</div><!--/row-->
+
+    	</div><!--/.container-->
+
+    	<!-- Bootstrap core JavaScript
+	    ================================================== -->
+	    <!-- Placed at the end of the document so the pages load faster -->
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	    <script src="{% static 'places/js/bootstrap.min.js' %}"></script>
+	    <script src="{% static 'places/js/offcanvas.js' %}"></script>
+
+	</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Boxify: Free HTML5/CSS3 Template by Peter Finlan</title>
+		<!-- Bootstrap -->
+		<link href="{% static 'places/css/bootstrap.min.css' %}" rel="stylesheet">
+		<link href="{% static 'places/css/animate.css' %}" rel="stylesheet">
+		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+		<link href="{% static 'places/css/styles.css' %}" rel="stylesheet">
+		
+		<style type="text/css">
+		.search-box{
+			height: 50px;
+		}
+		.learn-btn {
+			background : transparent;
+		}
+		</style>
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		
+		<!-- open/close -->
+		<header>
+			<section class="hero">
+				
+				<div class="container">
+					<div class="row nav-wrapper">
+						<div class="col-md-6 col-sm-6 col-xs-6 text-left">
+							<a href="#"><img src="{% static 'places/img/logo-white.png' %}" alt="Boxify Logo"></a>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6 text-right navicon">
+							<p>MENU</p><a id="trigger-overlay" class="nav_slide_button nav-toggle" href="#"><span></span></a>
+						</div>
+					</div>
+					<div class="row hero-content">
+						<div class="col-md-12">
+							<h1 class="animated fadeInDown">Explore cities, new places.</h1>
+							
+							<form method="post" action="{% url 'places:search' %}" class="form-inline animated fadeInUp" role="form">
+								{% csrf_token %}
+								<div class="top-margin form-group">
+									<input type="search" name="place" class="form-control search-box" placeholder="ex. Paris">
+								</div>
+								<div class="form-group">
+									<button type="submit" name="submit" class="learn-btn">SEARCH</button>
+								</div>
+							</form>
+							
+							<!--
+							<a href="http://tympanus.net/codrops/?p=22554" class="use-btn animated fadeInUp">Use it for free</a> <a href="#about" class="learn-btn animated fadeInUp">Learn more <i class="fa fa-arrow-down"></i></a>-->
+						</div>
+					</div>
+				</div>
+			</section>
+		</header>
+		
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-5">
+						<h1 class="footer-logo">
+						<img src="{% static 'places/img/logo-blue.png' %}" alt="Footer Logo Blue">
+						</h1>
+						<p>© Boxify 2015 - <a href="http://tympanus.net/codrops/licensing/">Licence</a> - Designed &amp; Developed by <a href="http://www.peterfinlan.com/">Peter Finlan</a></p>
+					</div>
+					<div class="col-md-7">
+						<ul class="footer-nav">
+							<li><a href="#about">About</a></li>
+							<li><a href="#features">Features</a></li>
+							<li><a href="#screenshots">Screenshots</a></li>
+							<li><a href="#download">Download</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<div class="overlay overlay-boxify">
+			<nav>
+				<ul>
+					<li><a href="#about"><i class="fa fa-heart"></i>About</a></li>
+					<li><a href="#features"><i class="fa fa-flash"></i>Features</a></li>
+				</ul>
+				<ul>
+					<li><a href="#screenshots"><i class="fa fa-desktop"></i>Screenshots</a></li>
+					<li><a href="#download"><i class="fa fa-download"></i>Download</a></li>
+				</ul>
+			</nav>
+		</div>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<!--<script src="{% static 'places/js/modernizr.custom.js' %}"></script>
+		<script src="{% static 'places/js/min/toucheffects-min.js' %}"></script>-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<!--<script src="{% static 'places/js/flickity.pkgd.min.js' %}"></script>
+		<script src="{% static 'places/js/jquery.fancybox.pack.js' %}"></script>-->
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<!--<script src="{% static 'places/js/retina.js' %}"></script>
+		<script src="{% static 'places/js/waypoints.min.js' %}"></script>-->
+		<script src="{% static 'places/js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'places/js/min/scripts-min.js' %}"></script>
+		
+	</body>
+</html>
