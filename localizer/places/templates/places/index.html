@@ -14,6 +14,8 @@
 		<link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
 		<link href="{% static 'places/css/styles.css' %}" rel="stylesheet">
 		
+		<link href="{% static 'places/css/agency.css' %}" rel="stylesheet">
+
 		<style type="text/css">
 		.search-box{
 			height: 50px;
@@ -31,41 +33,100 @@
 	</head>
 	<body>
 		
-		<!-- open/close -->
-		<header>
-			<section class="hero">
-				
-				<div class="container">
-					<div class="row nav-wrapper">
-						<div class="col-md-6 col-sm-6 col-xs-6 text-left">
-							<a href="#"><img src="{% static 'places/img/logo-white.png' %}" alt="Boxify Logo"></a>
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+    			<div class="navbar-header page-scroll">
+    				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	                    <span class="sr-only">Toggle navigation</span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                </button>
+	                <a href="#" class="navbar-brand page-scroll"><!--<img src="{% static 'places/img/logo-white.png' %}" alt="Boxify Logo">-->Boxify</a>
+    			</div>
+
+    			<!-- Collect the nav links, forms, and other content for toggling -->
+    			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    				<ul class="nav navbar-nav navbar-right">
+    					<li class="hidden">
+	                        <a href="#page-top"></a>
+	                    </li>
+	                    <li>
+	                    	<a href="#" class="page-scroll">HOME</a>
+	                    </li>
+	                    <li>
+	                    	<a href="#" class="page-scroll">FAVORITES</a>
+	                    </li>
+    				</ul>
+    			</div>	
+			</div>
+		</nav>
+
+		<!-- Header -->
+	    <header>
+	        <div class="container">
+	            <div class="intro-text text-left">
+					<h1 class="animated fadeInDown intro-lead-in">Explore cities, new places.</h1>
+					
+					<form method="post" action="{% url 'places:search' %}" class="form-inline animated fadeInUp" role="form">
+						{% csrf_token %}
+						<div class="top-margin form-group">
+							<input type="search" name="place" class="form-control search-box" placeholder="ex. Paris">
 						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6 text-right navicon">
-							<p>MENU</p><a id="trigger-overlay" class="nav_slide_button nav-toggle" href="#"><span></span></a>
+						<div class="form-group">
+							<button type="submit" name="submit" class="learn-btn">SEARCH</button>
 						</div>
-					</div>
-					<div class="row hero-content">
-						<div class="col-md-12">
-							<h1 class="animated fadeInDown">Explore cities, new places.</h1>
-							
-							<form method="post" action="{% url 'places:search' %}" class="form-inline animated fadeInUp" role="form">
-								{% csrf_token %}
-								<div class="top-margin form-group">
-									<input type="search" name="place" class="form-control search-box" placeholder="ex. Paris">
-								</div>
-								<div class="form-group">
-									<button type="submit" name="submit" class="learn-btn">SEARCH</button>
-								</div>
-							</form>
-							
-							<!--
-							<a href="http://tympanus.net/codrops/?p=22554" class="use-btn animated fadeInUp">Use it for free</a> <a href="#about" class="learn-btn animated fadeInUp">Learn more <i class="fa fa-arrow-down"></i></a>-->
-						</div>
-					</div>
-				</div>
-			</section>
-		</header>
+					</form>
+	            </div>
+	        </div>
+	    </header>
 		
+	    <section class="main-content">
+
+	    	<div class="content">
+	    		<div >
+	    			<div class="row">
+		                <div class="col-lg-12 text-center">
+		                    <h2 class="section-heading">Services</h2>
+		                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+		                </div>
+		            </div>
+
+		            <div class="row text-center">
+		            	<div class="col-md-4">
+		            		<h4>FOOD</h4>
+		            	</div>
+		            	<div class="col-md-4">
+		            		<h4>HEALTH</h4>
+		            	</div>
+		            	<div class="col-md-4">
+		            		<h4>LIFESTYLE</h4>
+		            	</div>
+		            </div>
+	    		</div>
+	    	</div>
+
+	    	<aside class="sidebar-basic">
+	    		<div class="panel panel-default categories">
+	    			<h3 class="panel-heading">CATEGORIES</h3>
+
+	    			<ul class="list-group">
+	    				<li class="list-group-item">
+	    					<a href="#" class="btn btn-defauls">Temples</a>
+	    				</li>
+	    				<li class="list-group-item">
+	    					<a href="#" class="btn btn-defauls">Hospitals</a>
+	    				</li>
+	    				<li class="list-group-item">
+	    					<a href="#" class="btn btn-defauls">Hotel</a>
+	    				</li>
+	    			</ul>
+
+	    		</div>	
+	    	</aside>
+	    </section>
+
 		<footer>
 			<div class="container">
 				<div class="row">

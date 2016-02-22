@@ -23,24 +23,35 @@
 		<![endif]-->
 	</head>
 	<body>
-		<div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
-				<div class="navbar-header">
-		          	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-			            <span class="sr-only">Toggle navigation</span>
-			            <span class="icon-bar"></span>
-			            <span class="icon-bar"></span>
-			            <span class="icon-bar"></span>
-		          	</button>
-		          	<a class="navbar-brand" href="#"><img src="{% static 'places/img/logo-white.png' %}" alt="Boxify Logo"></a>
-		        </div>
-		        <div class="collapse navbar-collapse text-right">
-		          	<ul class="nav navbar-nav">
-		            	<li class="active"><a href="{% url 'places:index' %}">Home</a></li>
-		          	</ul>
-		        </div><!-- /.nav-collapse -->
-			</div><!-- /.container -->
-		</div><!-- /.navbar -->
+				<!-- Brand and toggle get grouped for better mobile display -->
+    			<div class="navbar-header page-scroll">
+    				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	                    <span class="sr-only">Toggle navigation</span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                </button>
+	                <a href="#" class="navbar-brand page-scroll"><!--<img src="{% static 'places/img/logo-white.png' %}" alt="Boxify Logo">-->Boxify</a>
+    			</div>
+
+    			<!-- Collect the nav links, forms, and other content for toggling -->
+    			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    				<ul class="nav navbar-nav navbar-right">
+    					<li class="hidden">
+	                        <a href="#page-top"></a>
+	                    </li>
+	                    <li>
+	                    	<a href="#" class="page-scroll">HOME</a>
+	                    </li>
+	                    <li>
+	                    	<a href="#" class="page-scroll">FAVORITES</a>
+	                    </li>
+    				</ul>
+    			</div>	
+			</div>
+		</nav>
 
 		<div class="container">
 	      	<div class="row row-offcanvas row-offcanvas-right">
@@ -60,7 +71,9 @@
 						<div class="feature-content">
 							<h1>Restaraunt</h1>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-							<a href="http://tympanus.net/codrops/?p=22554" class="read-more-btn">Read More <i class="fa fa-chevron-circle-right"></i></a>
+							<button type="botton" class="btn btn-primary" data-toggle="modal" data-target="#detailModal" data-whatever="Restaurants">
+								Explore Restaraunts <i class="fa fa-chevron-circle-right"></i>
+							</button>
 						</div>
 					</div><!--/span-->
 					<div class="col-6 col-sm-6 col-lg-4">
@@ -70,7 +83,9 @@
 						<div class="feature-content">
 							<h1>Gyms</h1>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-							<a href="http://tympanus.net/codrops/?p=22554" class="read-more-btn">Read More <i class="fa fa-chevron-circle-right"></i></a>
+							<button type="botton" class="btn btn-primary" data-toggle="modal" data-target="#detailModal" data-whatever="Gyms">
+								Explore Gyms <i class="fa fa-chevron-circle-right"></i></a>
+							</button>
 						</div>
 					</div><!--/span-->
 					<div class="col-6 col-sm-6 col-lg-4">
@@ -80,7 +95,9 @@
 						<div class="feature-content">
 							<h1>Hospital</h1>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-							<a href="http://tympanus.net/codrops/?p=22554" class="read-more-btn">Read More <i class="fa fa-chevron-circle-right"></i></a>
+							<button type="botton" class="btn btn-primary" data-toggle="modal" data-target="#detailModal" data-whatever="Hospitals">
+								Explore Hospitals <i class="fa fa-chevron-circle-right"></i></a>
+							</button>
 						</div>
 					</div><!--/span-->
 				</div><!--/row-->
@@ -88,12 +105,41 @@
 
     	</div><!--/.container-->
 
+    	<div class="modal fade" id="detailModal" tab-index="-1" role="dialog" aria-labbelledby="detailModalLabel">
+    		<div class="modal-dialog" role="document">
+    			<div class="modal-content">
+    				<div class="modal-header">
+    					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    					<h4 class="modal-title" id="exampleModalLabel">Explore </h4>
+    				</div>
+    				<div class="modal-body">
+    					<h5>List of </h5>
+    				</div>
+    				<div class="modal-footer">
+    					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+
     	<!-- Bootstrap core JavaScript
 	    ================================================== -->
 	    <!-- Placed at the end of the document so the pages load faster -->
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	    <script src="{% static 'places/js/bootstrap.min.js' %}"></script>
 	    <script src="{% static 'places/js/offcanvas.js' %}"></script>
+
+	    <script type="text/javascript">
+	    	$('#detailModal').on('show.bs.modal', function (event) {
+				var button = $(event.relatedTarget) // Button that triggered the modal
+				var recipient = button.data('whatever') // Extract info from data-* attributes
+				// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+				// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+				var modal = $(this)
+				modal.find('.modal-title').text('Explore ' + recipient)
+				modal.find('.modal-body').text('LIst of ' + recipient)
+			})
+	    </script>
 
 	</body>
 </html>
