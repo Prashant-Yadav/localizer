@@ -101,6 +101,17 @@
 						</div>
 					</div><!--/span-->
 				</div><!--/row-->
+				<div class="row">
+					<div class="place-details">
+    					<h5>List of </h5>
+    					{% for place in places %}
+    						<h2>{{ place.name }}</h2>
+    						<p>Address: - {{ place.address }}</p>
+    						<p>Contact No : - {{ place.local_phone_number }}</p>
+    						<span>Website: - </span><a href="{{ place.website }}">{{ place.website }}</a>
+    					{% endfor %}
+    				</div>
+				</div>
       		</div><!--/row-->
 
     	</div><!--/.container-->
@@ -111,10 +122,16 @@
     			<div class="modal-content">
     				<div class="modal-header">
     					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    					<h4 class="modal-title" id="exampleModalLabel">Explore </h4>
+    					<h4 class="modal-title" id="exampleModalLabel">Explore {{ location }}</h4>
     				</div>
     				<div class="modal-body">
     					<h5>List of </h5>
+    					{% for place in places %}
+    						<h2>{{ place.name }}</h2>
+    						<p>Address: - {{ place.address }}</p>
+    						<p>Contact No : - {{ place.local_phone_number }}</p>
+    						<span>Website: - </span><a href="{{ place.website }}">{{ place.website }}</a>
+    					{% endfor %}
     				</div>
     				<div class="modal-footer">
     					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
