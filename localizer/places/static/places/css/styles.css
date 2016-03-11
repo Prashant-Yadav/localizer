@@ -72,7 +72,7 @@ html, body {
 */
 body {
     margin: 0;
-    font-family: 'Nunito', sans-serif;
+    /*font-family: 'Nunito', sans-serif;*/
 }
 
 /*
@@ -285,6 +285,42 @@ Figures
 
 figure {
     margin: 0
+}
+
+.figure {
+    width: 49%;
+    margin: 0px 0px 15px;
+    overflow: hidden;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24);
+    border-radius: 3px;
+    padding: 10px;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.pull-left {
+    float: left !important;
+}
+
+.pull-right {
+    float: right !important;
+}
+
+.figure .figure-img {
+    width: 50%;
+    max-width: 175px;
+    max-height: 175px;
+}
+
+.figure .figure-text {
+    height: 160px;
+    float: left;
+    width: 50%;
+    background: #F5F9FF none repeat scroll 0% 0%;
+    color: #4D4D4D;
+    font-size: 14px;
+    position: relative;
+    z-index: 9;
+    box-shadow: 0px -1px 12px 0px rgba(50, 50, 50, 0.25);
 }
 
 /* ==========================================================================

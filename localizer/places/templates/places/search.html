@@ -6,7 +6,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Boxify: Free HTML5/CSS3 Template by Peter Finlan</title>
+		<title>Localizer</title>
 		<!-- Bootstrap -->
 		<link href="{% static 'places/css/bootstrap.min.css' %}" rel="stylesheet">
 		<link href="{% static 'places/css/animate.css' %}" rel="stylesheet">
@@ -23,35 +23,8 @@
 		<![endif]-->
 	</head>
 	<body>
-		<nav class="navbar navbar-default navbar-fixed-top">
-			<div class="container">
-				<!-- Brand and toggle get grouped for better mobile display -->
-    			<div class="navbar-header page-scroll">
-    				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-	                    <span class="sr-only">Toggle navigation</span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                </button>
-	                <a href="#" class="navbar-brand page-scroll"><!--<img src="{% static 'places/img/logo-white.png' %}" alt="Boxify Logo">-->Boxify</a>
-    			</div>
-
-    			<!-- Collect the nav links, forms, and other content for toggling -->
-    			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    				<ul class="nav navbar-nav navbar-right">
-    					<li class="hidden">
-	                        <a href="#page-top"></a>
-	                    </li>
-	                    <li>
-	                    	<a href="#" class="page-scroll">HOME</a>
-	                    </li>
-	                    <li>
-	                    	<a href="#" class="page-scroll">FAVORITES</a>
-	                    </li>
-    				</ul>
-    			</div>	
-			</div>
-		</nav>
+		
+		{% include 'places/navbar.html' %}
 
 		<div class="container">
 	      	<div class="row row-offcanvas row-offcanvas-right">
@@ -71,6 +44,7 @@
 						<div class="feature-content">
 							<h1>Restaraunt</h1>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+							<a href="{% url 'places:content' 'FOOD' location %}" class="btn btn-primary">Explore</a>
 							<button type="botton" class="btn btn-primary" data-toggle="modal" data-target="#detailModal" data-whatever="Restaurants">
 								Explore Restaraunts <i class="fa fa-chevron-circle-right"></i>
 							</button>
@@ -84,7 +58,7 @@
 							<h1>Gyms</h1>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
 							<button type="botton" class="btn btn-primary" data-toggle="modal" data-target="#detailModal" data-whatever="Gyms">
-								Explore Gyms <i class="fa fa-chevron-circle-right"></i></a>
+								Explore Gyms <i class="fa fa-chevron-circle-right"></i>
 							</button>
 						</div>
 					</div><!--/span-->
@@ -96,12 +70,12 @@
 							<h1>Hospital</h1>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
 							<button type="botton" class="btn btn-primary" data-toggle="modal" data-target="#detailModal" data-whatever="Hospitals">
-								Explore Hospitals <i class="fa fa-chevron-circle-right"></i></a>
+								Explore Hospitals <i class="fa fa-chevron-circle-right"></i>
 							</button>
 						</div>
 					</div><!--/span-->
-				</div><!--/row-->
-				<div class="row">
+				</div><!--/.row-->
+				<!--<div class="row">
 					<div class="place-details">
     					<h5>List of </h5>
     					{% for place in places %}
@@ -111,8 +85,8 @@
     						<span>Website: - </span><a href="{{ place.website }}">{{ place.website }}</a>
     					{% endfor %}
     				</div>
-				</div>
-      		</div><!--/row-->
+				</div>-->
+      		</div><!--/.row-->
 
     	</div><!--/.container-->
 
