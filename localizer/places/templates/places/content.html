@@ -22,25 +22,21 @@
 
 	<section>
 		<div class="container">
-			{% for place in places %}
-				<figure class="figure pull-left">
-					<div class="figure-img pull-right">
-						{% if place.photos %}
-							<a href="{{ place.website }}">
-								{% with place.photos|first as photo %}
-									<img src="{{ photo.url }}" class="img-responsive">
-								{% endwith %}
-							</a>
-						{% endif %}
-					</div>
-					<figcaption>
-						<h2>{{ place.name }}</h2>
-						<p>Address: - {{ place.formatted_address }}</p>
-						<p>Contact No: - {{ place.local_phone_number }}</p>
-						<span>Website: - </span><a href="{{ place.website }}">{{ place.website }}</a>
-					</figcaption>
-				</figure>
-			{% endfor %}
+			<div class="col-md-6">
+				{% for place in places %}
+					<figure class="figure pull-left">
+						<div class="figure-img pull-right">
+							
+						</div>
+						<figcaption>
+							<h2>{{ place.name }}</h2>
+							<p>Address: - {{ place.formatted_address }}</p>
+							<p>Contact No: - {{ place.local_phone_number }}</p>
+							<span>Website: - </span><a href="{{ place.website }}">{{ place.website }}</a>
+						</figcaption>
+					</figure>
+				{% endfor %}
+			</div>
 		</div>
 	</section>
 </body>
