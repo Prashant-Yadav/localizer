@@ -3,6 +3,8 @@ from googleplaces import GooglePlaces, types, lang
 
 from django.shortcuts import render
 
+from .models import Place, Photo
+
 
 def index(request):
     return render(request, 'places/index.html')
@@ -21,6 +23,7 @@ def search(request):
 
     return render(request, 'places/search.html', context)
 
+
 def content(request, type, location):
     key = ' AIzaSyC02yzQWsAxkdaWn8p9ALV7nTthZvjannw'
 
@@ -35,15 +38,33 @@ def content(request, type, location):
         # Referencing any of the attributes below, prior to making a call to
         # get_details() will raise a googleplaces.GooglePlacesAttributeError.
 
+        place_model = Place(place_name=place.name,
+                            geo_location=place.geo_location,
+                            place_id=place.place_id,
+                            address="",
+                            local_phone_number=str(place.local_phone_number),
+                            international_phone_number=str(place.international_phone_number),
+                            website=place.website,
+                            icon=place.icon
+                            )
+        place_model.save()
+
+        current_place = Place.objects.get(id=place_model.id)
+
         for photo in place.photos:
             photo.get(maxheight=500, maxwidth=500)
 
-    
+            photo_model = Photo(photo_name=photo.filename,
+                                place=current_place,
+                                url=photo.url,
+                                mimetype=photo.mimetype
+                                )
+            photo_model.save()
 
     context = {
         'location': location,
         'places': query_result.places,
-        'type' : type,
+        'type': type,
     }
 
     return render(request, 'places/content.html', context)
