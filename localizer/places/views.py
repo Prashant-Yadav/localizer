@@ -25,8 +25,16 @@ def search(request):
 
 
 def content(request, type, location):
-    key = ' AIzaSyC02yzQWsAxkdaWn8p9ALV7nTthZvjannw'
+    key = 'AIzaSyDVa_QhQkZb8eGLwMmDrhvpjB745f5dakM'
 
+    '''try: 
+        places=Place.objects.filter(city=location)
+        context = {
+            'location': location,
+            'places': places,
+            'type': type,
+        }
+    except:        '''
     google_places = GooglePlaces(key)
 
     query_result = google_places.nearby_search(location=location, radius=20000,
@@ -42,6 +50,8 @@ def content(request, type, location):
                             geo_location=place.geo_location,
                             place_id=place.place_id,
                             address="",
+                            details=place.details,
+                            city=location,
                             local_phone_number=str(place.local_phone_number),
                             international_phone_number=str(place.international_phone_number),
                             website=place.website,
@@ -68,3 +78,13 @@ def content(request, type, location):
     }
 
     return render(request, 'places/content.html', context)
+
+def item(request, place_id):
+    
+    place = Place.objects.get(place_id=place_id)
+
+    context = {
+        'place': place,
+    }
+
+    return render(request, 'places/item.html', context)

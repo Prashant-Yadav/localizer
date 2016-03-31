@@ -307,8 +307,8 @@ figure {
 
 .figure .figure-img {
     width: 50%;
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 70px;
+    max-height: 70px;
 }
 
 .figure .figure-text {

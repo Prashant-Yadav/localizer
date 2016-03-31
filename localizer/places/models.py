@@ -8,8 +8,11 @@ class Place(models.Model):
     geo_location = models.CharField(max_length=100)
     place_id = models.CharField(max_length=200)
     address = models.CharField(max_length=200, blank=True, null=True)
+    details = models.TextField(blank=True, null=True)
+    city = models.CharField(max_length=50, blank=True, null=True)
     local_phone_number = models.CharField(max_length=16, blank=True, null=True)
-    international_phone_number = models.CharField(max_length=16, blank=True, null=True)
+    international_phone_number = models.CharField(
+        max_length=16, blank=True, null=True)
     website = models.URLField(blank=True, null=True)
     icon = models.URLField(blank=True, null=True)
 
